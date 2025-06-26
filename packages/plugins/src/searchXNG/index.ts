@@ -1,6 +1,11 @@
 import { delay } from '@fastgpt/global/common/system/utils';
 import * as cheerio from 'cheerio';
 import { i18nT } from '../../../web/i18n/utils';
+import { setGlobalDispatcher, ProxyAgent } from "undici";
+
+const httpDispatcher = new ProxyAgent("10.8.81.32:80");
+setGlobalDispatcher(httpDispatcher);
+
 
 type Props = {
   query: string;
